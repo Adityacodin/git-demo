@@ -13,6 +13,7 @@ class TemperatureConverter{
         Matcher match = pattern.matcher(Unit);
         boolean IsCel = match.find();
         boolean IsFahr=false;
+        sc.close();
         //System.out.print(IsCel);
         if(!IsCel){
             Pattern pattern2 = Pattern.compile("fahrenheit",Pattern.CASE_INSENSITIVE);
