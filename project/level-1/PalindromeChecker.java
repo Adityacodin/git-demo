@@ -26,6 +26,7 @@ class PalindromeChecker{
     
     public static void main(String[] args) throws IOException{
         BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter a word/phrase :-");
         String sent = scan.readLine();
         //System.out.println(sent);
         boolean phrase = phraseornot(sent);
