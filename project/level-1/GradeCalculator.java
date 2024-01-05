@@ -1,17 +1,47 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+// import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 class GradeCalculator{
 
-    static void printPercentageAndSgpa(int total,int sum){
+    private static final DecimalFormat df = new DecimalFormat("0.00");
+    static String getGrade(float percentage){
+        if(percentage >= 85.0F)
+          return "A+";
+        else if(percentage >= 80.0F)
+          return "A";
+        else if(percentage >= 75.0F)
+          return "B+";
+        else if(percentage >= 70.0F)
+          return "B";
+        else if(percentage >= 65.0F)
+          return "B-";
+        else if(percentage >= 60.0F)
+          return "C+";
+        else if(percentage >=55.0F)
+          return "C";
+        else if(percentage >=50.0F)
+          return "C-";
+        else if(percentage >=45.0F)
+          return "D";
+        else if(percentage >= 40.0F)
+          return "D";
+        else 
+          return "F";
+
+      }
+    static void printPerSgpGra(int total,int sum){
         //System.out.println(sum + " " + total);
         float per = ((float)sum/(float)total)*100F;
         System.out.println("PERCENTAGE: "+per);
         float sgpa = per/9.3F;
-        System.out.println("SGPA SCORE: "+ sgpa);
+        System.out.println("SGPA SCORE: "+ df.format(sgpa));
         // System.out.println(per);
         // return per;
+        String grade = getGrade(per);
+        System.out.println("GRADE: "+grade);
     }
     
     public static void main(String[] args) throws IOException{
@@ -22,7 +52,7 @@ class GradeCalculator{
         System.out.print("Enter the maximum marks for evaluation: ");
         final int TheoMax = Integer.parseInt(scan.readLine());
         final int Totalmarks = TheoMax*theorySub;
-        System.out.print("Now pls proceed to enter the name of subjects one by one(for tabulating purpose):");
+        System.out.println("Now pls proceed to enter the name of subjects one by one:");
         String[] subName = new String[theorySub];
         for(int i=1; i<=theorySub; i++){
             subName[i-1] = scan.readLine();
@@ -44,13 +74,7 @@ class GradeCalculator{
           sum += mark;
         }
         System.out.println("TOTAL MARKS SCORED : " + sum+"/"+Totalmarks);
-        printPercentageAndSgpa(Totalmarks,sum);
-        
-        
-
-
-        
-        
-
+        printPerSgpGra(Totalmarks,sum);
+        System.out.println("AVERAGE MARKS SCORED : " + (sum/theorySub) + " out of "+ TheoMax);        
     }
 }
