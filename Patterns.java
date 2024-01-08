@@ -193,7 +193,8 @@ class Patterns{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        numtri(n);
+        //call the respective pattern function here.
+
         sc.close();
     }
 }
