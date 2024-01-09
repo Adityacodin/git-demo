@@ -347,7 +347,7 @@ class Patterns{
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         // call the respective pattern function here.
-        mostImpPattern(n);
+        
         sc.close();
     }
 }
