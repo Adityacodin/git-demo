@@ -180,7 +180,7 @@ class Patterns{
             System.out.println();
         }
     }
-
+    // pattern 13
     static void numtri(int n){
         int counter =1;
         for(int i=1; i<=n; i++){
@@ -190,11 +190,164 @@ class Patterns{
             System.out.println();
         }
     }
+
+    // pattern 14
+    static void columnchar(int n){
+        char a = 'A';
+        // System.out.println((char)a);
+        for(int i=1; i<=n; i++){
+            for(int j=1; j<=i ; j++){
+                System.out.print((char)(a+j-1));
+            }
+            System.out.println();
+        }
+    }
+
+    // pattern 15
+    static void rowchar(int n){
+        char a= 'A';
+        for(int i=1; i<=n; i++){
+            for(int j=1; j<=i;j++){
+                System.out.print((char)(a+i-1));
+            }
+            System.out.println();
+        }
+    }
+
+    // pattern 16 
+    static void invcharcolumn(int n){
+        char a = 'A';
+        for(int i=1; i<=n ; i++){
+            for(int j=1; j<=n+1-i; j++){
+                System.out.print((char)(a-1+j));
+            }
+            System.out.println();
+        }
+    }
+
+    // Pattern 17
+    static void propchar(int n){
+        char a ='A';
+        for(int i=1;i<=n; i++){
+            for(int j=1; j<=n-i+1; j++){
+                System.out.print(" ");
+            }
+            for(int j=1; j<=i; j++){
+                System.out.print((char)(a+j-1));
+            }
+            for(int j =2; j<=i; j++){
+                System.out.print((char)(a+j-2));
+            }
+            System.out.println();
+        }
+    }
+    // pattern 18
+    static void charmagic(int n){
+        char e = 'E';
+        for(int i=1; i<=n;i++){
+            for(int j=1;j<=i; j++){
+                System.out.print((char)(e++) + " ");
+            }
+            e-=(i+1);
+            System.out.println();
+        }
+    }
+    // pattern 19
+
+    static void hollowDiamond(int n){
+        // 1-st half
+        for(int i=1;i<=n; i++){
+            // inv 1st
+            for(int j=1; j<=n-i+1; j++){
+                System.out.print("*");
+            }
+            for(int j=2; j<=2*i-1; j++){
+                System.out.print(" ");
+            }
+            for(int j=1; j<=n-i+1; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        // 2-nd half
+        for(int i=n;i>=1; i--){
+            // inv 1st
+            for(int j=1; j<=n-i+1; j++){
+                System.out.print("*");
+            }
+            for(int j=2; j<=2*i-1; j++){
+                System.out.print(" ");
+            }
+            for(int j=1; j<=n-i+1; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+    }
+    // pattern 21
+    static void hollosquare(int n){
+        for(int i=1;i<=n; i++){
+            for(int j=1; j<=n; j++){
+                if((i==1 || j==1) || (i==n || j==n)){
+                    System.out.print("*");
+                }
+                else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+    // pattern 21
+    static void butterfly(int n){
+        // 1-st half
+        for(int i=1; i<=n;i++){
+            for(int j=1; j<=i;j++){
+                System.out.print("*");
+            }
+            for(int j=1; j<=2*(n-i); j++){
+                System.out.print(" ");
+            }
+            for(int j=1; j<=i; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+        // 2-nd half
+        for(int i=n-1; i>=1;i--){
+            for(int j=1; j<=i;j++){
+                System.out.print("*");
+            }
+            for(int j=1; j<=2*(n-i); j++){
+                System.out.print(" ");
+            }
+            for(int j=1; j<=i; j++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
+    static void mostImpPattern(int n){
+        for(int i=0; i<2*n-1; i++){
+            for(int j=0; j<2*n-1; j++){
+                int top =i;
+                int left =j;
+                int right = 2*(n-1)-j;
+                int bottom = 2*(n-1)-i;
+                System.out.print(n-Math.min(Math.min(top,bottom),Math.min(left,right)));
+            }
+            System.out.println();
+        }
+    }
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        //call the respective pattern function here.
-
+        // call the respective pattern function here.
+        mostImpPattern(n);
         sc.close();
     }
 }
