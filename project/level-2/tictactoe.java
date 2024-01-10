@@ -61,10 +61,10 @@ class tictactoe{
               }
         }   
     }
-    static int win(String[][] board, String piece){
-        ArrayList<int[]> possibilites = new ArrayList<>();
+    // static int win(String[][] board, String piece){
+    //     ArrayList<int[]> possibilites = new ArrayList<>();
         
-    }
+    // }
     // static int winOrnot(String[][] board,int token,String piece){
     //     int setposition[][] = {{1,2,3}, {4,5,6}, {7,8,9}};
     //     int OddSum = 0;
