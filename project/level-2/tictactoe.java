@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 class tictactoe{
@@ -60,9 +61,65 @@ class tictactoe{
               }
         }   
     }
-    static boolean winOrnot(String[][] board){
-
+    static int win(String[][] board, String piece){
+        ArrayList<int[]> possibilites = new ArrayList<>();
+        
     }
+    // static int winOrnot(String[][] board,int token,String piece){
+    //     int setposition[][] = {{1,2,3}, {4,5,6}, {7,8,9}};
+    //     int OddSum = 0;
+    //     int EvenSum = 0;
+    //     int count1 =1;
+    //     int count2 = 1;
+    //     if(token%2!=0){
+    //     for(int i=0; i<3;i++){
+    //         for(int j =0; j<3; j++){
+    //            if(board[i][j].equals(piece)){
+    //             if(count1 <= 3){
+    //             if(count1 == 1){
+    //             OddSum += setposition[i][j];
+    //             count1++;
+    //             }  
+    //             }
+    //            }
+    //         }
+    //     }
+    //         if(OddSum%3 == 0){
+    //           return token;
+    //         }
+    //     }
+    //     else{
+    //         for(int i=0; i<3;i++){
+    //             for(int j =0; j<3; j++){
+    //                 if(board[i][j].equals(piece)){
+    //                     if(count2 <= 3){
+    //                     if(count2 == 1){
+    //                     EvenSum += setposition[i][j];
+    //                     count2++;
+    //                     }  
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //             if(EvenSum%3 == 0){
+    //               return token;
+    //             }
+    //     }
+    //     return -1;
+
+    // }
+    // static int win(String[][] board, int token, String piece){
+    //     int setposition[][] = {{1,2,3}, {4,5,6}, {7,8,9}};
+    //     if(token%2!=0){
+    //         for(int i=0; i<3; i++){
+    //             for(int j=0; j<3; j++){
+    //                 if(board[i][j].equals(piece)){
+    //                     sum += setposition[i][j];
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     public static void main(String[] args) throws IOException{
         printRules();
         System.out.println("_________________________________________________________________\n");
@@ -92,6 +149,11 @@ class tictactoe{
                 if(pos <= 9){
                     if(!occupiedOrNot(pos)){
                         makeMove(pos, pl1key);
+                        if(counter >= 2){
+                            if(winOrnot(board, counter,pl1key)%2!= 0){
+                                System.out.print("Player 1 -> "+pl1key.toUpperCase()+ " WINS!!!!! \nPlayer 2 -> "+pl2key+" LOSES!!!!!");
+                            }
+                        }
                     }
                     else{
                         System.out.println("No Cheating...... Position already filled");
@@ -108,6 +170,11 @@ class tictactoe{
                 if(pos <= 9){
                     if(!occupiedOrNot(pos)){
                         makeMove(pos, pl2key);
+                        if(counter >= 2){
+                            if(winOrnot(board, counter, pl2key) == 0){
+                                System.out.print("Player 2 -> "+pl2key+ " WINS!!!!! \nPlayer 1 -> "+pl1key.toUpperCase()+" LOSES!!!!!");
+                            }
+                        }
                     }
                     else{
                         System.out.println("No Cheating...... Position already filled");
