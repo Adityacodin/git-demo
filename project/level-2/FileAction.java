@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 // import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.lang.Math;
 
 public class FileAction {
     public static String createFile(String Filename)throws IOException{
@@ -45,7 +46,7 @@ public class FileAction {
 
     static int getkey(){
         // int a[] = {1,2,3,4,5,6,7,8,9,10};
-        int key = (int)(10 * Math.random()+1);
+        final int key = (int)(10 * Math.random()+1);
         return key ;
     }
     static int encryptFile(String FileToEncrypt)throws IOException{
