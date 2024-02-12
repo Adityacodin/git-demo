@@ -1,4 +1,4 @@
-package top;
+package file-handling;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.ImageIcon;
@@ -18,7 +18,7 @@ public class myFrame extends JFrame{
 		ImageIcon img = new ImageIcon("num.jpg");
 		frame.setIconImage(img.getImage());
 		frame.getContentPane().setBackground(new Color(154,206,223));
-		setLayout(new FlowLayout());
+		// setLayout(new FlowLayout());
 		JLabel l1 = new JLabel("GUESS THE NUMBER");
 		l1.setFont(new Font("Times New Roman",Font.PLAIN,25));
 		l1.setHorizontalAlignment(JLabel.CENTER);
