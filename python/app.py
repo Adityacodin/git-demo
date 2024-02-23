@@ -80,3 +80,65 @@ while True:
         print("i dont understand that")
 '''
 
+# for loops : 
+'''
+for item in ['mosh','john','sarah']:
+    print(item)
+
+for item in range(0,10,2):
+    print(item)
+
+prices = [10,20,30]
+sum = 0
+for i in prices:
+    sum += i
+print("Total -> {}".format(sum))
+
+times = [2,2,2,2,6]
+for i in times:
+    output = ''
+    for j in range(i):
+        output += 'x'
+    print(output)
+    '''
+#  lists
+# names = ['bob','josh','jake','drake','katie']
+# print(names[-1])
+# print(names[:])
+
+list = [1,7,89,56,43,73,23,67,88,43,799]
+'''
+largest = -1
+for i in range(0,list.__len__()):
+    if largest<list[i]:
+        largest = list[i]
+print(largest)
+
+max = list[0]
+for number in list:
+    if number > max :
+        max = number
+print(max)
+'''
+# 2d list
+'''
+matrix = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+# matrix[2][2] = 20
+# print(matrix)
+
+for row in matrix:
+    for item in row:
+        print(item)
+'''
+# list methods
+
+list = [5,2,1,7,7,4]
+list.insert(4,89)
+list.pop(1)
+list.sort()
+print(list)
+print(type(list))
