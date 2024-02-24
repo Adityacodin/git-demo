@@ -106,7 +106,7 @@ for i in times:
 # print(names[-1])
 # print(names[:])
 
-list = [1,7,89,56,43,73,23,67,88,43,799]
+# list = [1,7,89,56,43,73,23,67,88,43,799]
 '''
 largest = -1
 for i in range(0,list.__len__()):
@@ -136,9 +136,17 @@ for row in matrix:
 '''
 # list methods
 
-list = [5,2,1,7,7,4]
-list.insert(4,89)
-list.pop(1)
-list.sort()
-print(list)
-print(type(list))
+# list = [5,2,1,7,7,4]
+# list.insert(4,89)
+# list.pop(1)
+# list.sort()
+# print(list)
+# print(type(list))
+for i in range(0,3):
+    for j in range (0,3):
+        list[i][j] = input("Enter element-> ")
+
+for i in rane(0,3):
+    for j in range(0,3):
+        print(list[i][j],end=" ")
+    print("\n")
