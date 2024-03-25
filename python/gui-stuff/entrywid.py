@@ -1,23 +1,144 @@
-from tkinter import *
-import customtkinter
+# Python program to create a basic GUI 
+# application using the customtkinter module
 
-customtkinter.set_appearance_mode("dark")
-customtkinter.set_default_color_theme("dark-blue")
+import customtkinter as ctk
+import tkinter as tk
 
-root = customtkinter.CTk();
+# Basic parameters and initializations
+# Supported modes : Light, Dark, System
+ctk.set_appearance_mode("System") 
 
-root.title("enter your name: ")
-root.geometry('600x350')
+# Supported themes : green, dark-blue, blue
+ctk.set_default_color_theme("green") 
 
-MYlabel = customtkinter.CTkLabel(root,text ="",font = ('Helvetica',25))
-MYlabel.pack(pady=40)
+appWidth, appHeight = 600, 700
 
-myEntry = customtkinter.CTkEntry(root
-,placeholder_text="Enter Your Name")
-myEntry.pack(pady=20)
+# App Class
+class App(ctk.CTk):
+	def __init__(self, *args, **kwargs):
+		super().__init__(*args, **kwargs)
 
-def submit():
-    MYlabel.configure(text=f"Hello {myEntry.get().title()}")
-myBut = customtkinter.CTkButton(root,text = "Submit",command= submit)
-myBut.pack(pady=10)
-root.mainloop()
+		self.title("SIP Calculator")
+		self.geometry(f"{appWidth}x{appHeight}")
+
+		self.SIPAmount = ctk.CTkLabel(self,text = "SIP Amount ->")
+		self.SIPAmount.grid(row = 0, column = 0,padx = 20, pady = 20, sticky = 'ew')
+
+		self.EnterAmount = ctk.CTkEntry(self, placeholder_text = '2,000')
+		self.EnterAmount.grid( row = 0, column = 1, padx =20, pady = 20, sticky = 'ew')
+
+		self.Tenure = ctk.CTkLabel(self,
+									text="Tenure (in years) ->")
+		self.Tenure.grid(row=1, column=0,
+							padx=30, pady=30,
+							sticky="ew")
+		self.op = ctk.CTkComboBox(self,values = ["5","10","15","20","25","30"])
+		self.op.grid(row = 1, column = 1,
+		columnspan = 2, padx = 30, pady = 30, sticky = "ew")
+		# self.op.place(relx = 0.5, rely = 0.5, anchor = 'center')
+
+
+		# Age Label
+		# self.ageLabel = ctk.CTkLabel(self,
+		# 							text="Age")
+		# self.ageLabel.grid(row=1, column=0,
+		# 				padx=20, pady=20,
+		# 				sticky="ew")
+
+		# # Age Entry Field
+		# self.ageEntry = ctk.CTkEntry(self,
+		# 					placeholder_text="18")
+		# self.ageEntry.grid(row=1, column=1,
+		# 				columnspan=3, padx=20,
+		# 				pady=20, sticky="ew")
+
+		# # Gender Label
+		# self.genderLabel = ctk.CTkLabel(self, 
+		# 							text="Gender")
+		# self.genderLabel.grid(row=2, column=0, 
+		# 					padx=20, pady=20,
+		# 					sticky="ew")
+
+		# # Gender Radio Buttons
+		# self.genderVar = tk.StringVar(value="Prefer\
+		# 								not to say")
+
+		# self.maleRadioButton = ctk.CTkRadioButton(self,
+		# 						text="Male",
+		# 						variable=self.genderVar,
+		# 									value="He is")
+		# self.maleRadioButton.grid(row=2, column=1, padx=20,
+		# 						pady=20, sticky="ew")
+
+		# self.femaleRadioButton = ctk.CTkRadioButton(self,
+		# 							text="Female",
+		# 							variable=self.genderVar,
+		# 							value="She is")
+		# self.femaleRadioButton.grid(row=2, column=2,
+		# 							padx=20,
+		# 							pady=20, sticky="ew")
+		
+		# self.noneRadioButton = ctk.CTkRadioButton(self,
+		# 							text="Prefer not to say",
+		# 							variable=self.genderVar,
+		# 									value="They are")
+		# self.noneRadioButton.grid(row=2, column=3,
+		# 						padx=20, pady=20, 
+		# 						sticky="ew")
+
+		# # Choice Label
+		# self.choiceLabel = ctk.CTkLabel(self,
+		# 								text="Choice")
+		# self.choiceLabel.grid(row=3, column=0,
+		# 					padx=20, pady=20,
+		# 					sticky="ew")
+
+		# # Choice Check boxes
+		# self.checkboxVar = tk.StringVar(value="Choice 1")
+		
+		# self.choice1 = ctk.CTkCheckBox(self, text="choice 1",
+		# 							variable=self.checkboxVar,
+		# 							onvalue="choice1",
+		# 							offvalue="c1")
+		# self.choice1.grid(row=3, column=1, padx=20,
+		# 				pady=20, sticky="ew")
+
+		# self.choice2 = ctk.CTkCheckBox(self, text="choice 2",
+		# 							variable=self.checkboxVar,
+		# 							onvalue="choice2", 
+		# 							offvalue="c2")							 
+		# self.choice2.grid(row=3, column=2, padx=20, pady=20,
+		# 				sticky="ew")
+
+		# # Occupation Label
+		# self.occupationLabel = ctk.CTkLabel(self,
+		# 									text="Occupation")
+		# self.occupationLabel.grid(row=4, column=0,
+		# 						padx=20, pady=20,
+		# 						sticky="ew")
+
+		# # Occupation combo box
+		# self.occupationOptionMenu = ctk.CTkOptionMenu(self,
+		# 								values=["Student",
+		# 								"Working Professional"])
+		# self.occupationOptionMenu.grid(row=4, column=1,
+		# 							padx=20, pady=20,
+		# 							columnspan=2, sticky="ew")
+
+		# # Generate Button
+		# self.generateResultsButton = ctk.CTkButton(self,
+		# 								text="Generate Results")
+		# self.generateResultsButton.grid(row=5, column=1,
+		# 								columnspan=2,
+		# 								padx=20, pady=20,
+		# 								sticky="ew")
+
+		# # Text Box
+		# self.displayBox = ctk.CTkTextbox(self, width=200,
+		# 								height=100)
+		# self.displayBox.grid(row=6, column=0, columnspan=4,
+		# 					padx=20, pady=20, sticky="nsew")
+
+if __name__ == "__main__":
+	app = App()
+	app.mainloop()
